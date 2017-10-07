@@ -18,8 +18,8 @@ if __name__ == '__main__':
             uClient.close()
             page_soup = soup(page_html, "html.parser")
             table = page_soup.findAll("table", {"class": "table no-bottom-margin table-striped table-condensed"})
-            for row in table[1].findAll("tr"):
-                cells = row.findAll("td")
+            for row in table[1].findAll("tr"): #from HTML table find all rows
+                cells = row.findAll("td") #from row find all cells
                 if len(cells) > 0:
                     miner = cells[0].text.strip()
                     sent_hash = int(float(cells[2].text.strip()))
